@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-
-
+import Providers from "@/contents/ProgressProvider";
 
 export const metadata: Metadata = {
   title: "Chamber Queue Management",
@@ -15,10 +14,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`min-h-screen antialiased`}
-      >
-        {children}
+      <body className={`min-h-screen antialiased`}>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
