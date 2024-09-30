@@ -1,4 +1,4 @@
-import { LayoutDashboard, LogOut } from "lucide-react";
+import { CalendarCheck2, LayoutDashboard, LogOut, Rows3 } from "lucide-react";
 import React from "react";
 import Logo from "../logo/Logo";
 import NavLink from "../buttons/NavLink";
@@ -18,14 +18,19 @@ export default function Sidebar() {
 
         <nav className="flex flex-col gap-1">
           <NavLink
-            href="/"
+            href="/admin"
             title="Dashboard"
             icon={<LayoutDashboard className="size-5" />}
           />
           <NavLink
-            href="/"
-            title="Dashboard"
-            icon={<LayoutDashboard className="size-5" />}
+            href="/admin/appointments"
+            title="Appointment"
+            icon={<CalendarCheck2 className="size-5" />}
+          />
+           <NavLink
+            href="/admin/queue"
+            title="Queue"
+            icon={<Rows3 className="size-5" />}
           />
         </nav>
       </section>
