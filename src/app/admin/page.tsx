@@ -1,11 +1,13 @@
+import CardSection from "@/components/dashboard/CardSection";
+import Header from "@/components/dashboard/Header";
+
 export default function DashboardHome() {
   return (
-    <>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae saepe
-      nostrum in mollitia assumenda, repellendus quidem et fugit laboriosam ad
-      doloribus impedit voluptates voluptatum accusamus pariatur exercitationem.
-      Necessitatibus, qui nam.
-      lorem*100
-    </>
+    <div className="w-full">
+      <Header />
+
+      {/* cardsection */}
+      <CardSection />
+    </div>
   );
 }
