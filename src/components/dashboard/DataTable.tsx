@@ -14,10 +14,21 @@ import { patientList } from "@/lib/data";
 import PatientStatusTag from "../badge/PatientStatusTag";
 import Modal from "../modal/Modal";
 import AppointmentForm from "../forms/AppointmentForm";
-import { UserRoundPlus } from "lucide-react";
+import { UserRoundPen } from "lucide-react";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from "../ui/alert-dialog";
 
 function DataTable() {
   const [edit, setEdit] = useState<any>(false);
+  const [cancel, setCancel] = useState<any>(false);
 
   return (
     <>
@@ -53,6 +64,9 @@ function DataTable() {
                   <Button
                     className="rounded-full text-destructive"
                     variant={"link"}
+                    onClick={() => {
+                      setCancel(item.id);
+                    }}
                   >
                     Cancel
                   </Button>
@@ -67,8 +81,8 @@ function DataTable() {
       <Modal
         open={edit}
         onOpenChange={setEdit}
-        title="Add Appointment"
-        icon={<UserRoundPlus className="text-primary size-4" />}
+        title="Update Appointment"
+        icon={<UserRoundPen className="text-primary size-4" />}
       >
         <AppointmentForm
           data={edit}
@@ -77,6 +91,22 @@ function DataTable() {
           }}
         />
       </Modal>
+
+      {/* cancel appointment dialog */}
+      <AlertDialog open={cancel} onOpenChange={setCancel}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+            <AlertDialogDescription>
+              This will cancel this appointment.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>Cancel</AlertDialogCancel>
+            <AlertDialogAction>Continue</AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </>
   );
 }
