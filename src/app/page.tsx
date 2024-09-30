@@ -1,9 +1,7 @@
-import React from 'react'
+import { redirect } from 'next/navigation'
 
 function Home() {
-  return (
-    <div>Home</div>
-  )
+  redirect('/admin')
 }
 
 export default Home
