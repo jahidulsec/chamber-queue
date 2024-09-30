@@ -23,11 +23,11 @@ function NavLink({ className, href='', title, icon, ...props }: NavlinkProps) {
       role="button"
       href={href}
       className={cn(
-        `px-4 py-2 rounded-full flex gap-3 items-center text-muted-foreground hover:text-background hover:bg-foreground group transition-all duration-500 ${pathname === href ? "text-background bg-foreground" : ""}`,
+        `px-4 py-2 rounded-full flex gap-3 items-center text-muted-foreground hover:text-background hover:bg-foreground group transition-all duration-300 ${pathname === href ? "text-background bg-foreground" : ""}`,
         className,
       )}
     >
-      <span className={`group-hover:text-primary transition-all duration-500 ${pathname === href ? "text-primary" : ""}`}>
+      <span className={`group-hover:text-blue-400 transition-all duration-500 ${pathname === href ? "text-blue-400" : ""}`}>
         {icon}
       </span>
       <h4>{title}</h4>

@@ -3,7 +3,7 @@ import React, { ComponentProps } from 'react'
 
 function Section({className, ...props}: ComponentProps<'section'>) {
   return (
-    <section {...props} className={cn('my-6', className)} />
+    <section {...props} className={cn('my-8', className)} />
   )
 }
 

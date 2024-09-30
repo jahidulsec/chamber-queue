@@ -1,4 +1,5 @@
 import CardSection from "@/components/dashboard/CardSection";
+import DataSection from "@/components/dashboard/DataSection";
 import Header from "@/components/dashboard/Header";
 
 export default function DashboardHome() {
@@ -6,8 +7,11 @@ export default function DashboardHome() {
     <div className="w-full">
       <Header />
 
-      {/* cardsection */}
+      {/* card section */}
       <CardSection />
+
+      {/* data section */}
+      <DataSection />
     </div>
   );
 }
