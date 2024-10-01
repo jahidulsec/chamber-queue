@@ -1,3 +1,5 @@
+import { format } from "date-fns";
+
 export function titleCase(title: string) {
     let data = title.split('-')
     let newValue = []
@@ -7,3 +9,8 @@ export function titleCase(title: string) {
     return newValue.join(" ")
   }
   
+
+  export const formatDateTime = (date: Date) => {
+    if (date == null) return `-`;
+    return format(date, "MMM d, yyyy - h:mm aaa");
+  };
