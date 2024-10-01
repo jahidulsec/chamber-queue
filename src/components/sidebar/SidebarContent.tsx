@@ -18,21 +18,21 @@ function SidebarContent() {
 
         <Separator />
 
-        <nav className="flex flex-col gap-1">
+        <nav className="flex flex-col gap-3">
           <NavLink
             href="/admin"
             title="Dashboard"
-            icon={<LayoutDashboard className="size-5" />}
+            icon={<LayoutDashboard className="size-4" />}
           />
           <NavLink
             href="/admin/appointments"
             title="Appointment"
-            icon={<CalendarCheck2 className="size-5" />}
+            icon={<CalendarCheck2 className="size-4" />}
           />
            <NavLink
             href="/admin/queue"
             title="Queue"
-            icon={<Rows3 className="size-5" />}
+            icon={<Rows3 className="size-4" />}
           />
         </nav>
       </section>
@@ -43,7 +43,7 @@ function SidebarContent() {
         <NavLink
           className="mt-5 text-primary"
           title="Logout"
-          icon={<LogOut className="size-5" />}
+          icon={<LogOut className="size-4" />}
         />
       </section>
     </>

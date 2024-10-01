@@ -1,9 +1,12 @@
+import FilterSection from '@/components/appointments/FilterSection'
+import Header from '@/components/appointments/Header'
 import React from 'react'
 
-function AppoinmentPage() {
+export default async function AppoinmentPage() {
   return (
-    <div>AppoinmentPage</div>
+    <>
+      <Header />
+      <FilterSection />
+    </>
   )
 }
-
-export default AppoinmentPage
