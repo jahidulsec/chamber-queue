@@ -22,10 +22,10 @@ function FilterSection() {
           </SelectContent>
         </Select>
 
-        <Button className="rounded-full">
+        {/* <Button className="rounded-full">
           <Plus className="mr-2 size-4" />
           <span>Add</span>
-        </Button>
+        </Button> */}
       </div>
     </Section>
   );

@@ -13,8 +13,12 @@ import { patientList } from "@/lib/data";
 import PatientStatusTag from "../badge/PatientStatusTag";
 import { Button } from "../ui/button";
 import { formatDateTime } from "@/lib/formatter";
-import { Check, Edit, X } from "lucide-react";
+import { Check, Edit, UserRoundPen, X } from "lucide-react";
 import Tooltips from "../ui/Tooltips";
+import Modal from "../modal/Modal";
+import AppointmentForm from "../forms/AppointmentForm";
+import { AlertDialog, AlertDialogAction, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle } from "../ui/alert-dialog";
+import { AlertDialogCancel } from "@radix-ui/react-alert-dialog";
 
 function AppointmentTable() {
   const [edit, setEdit] = useState<any>(false);
@@ -84,6 +88,37 @@ function AppointmentTable() {
           ))}
         </TableBody>
       </Table>
+
+      {/* add appointment dialog */}
+      <Modal
+        open={edit}
+        onOpenChange={setEdit}
+        title="Update Appointment"
+        icon={<UserRoundPen className="text-primary size-4" />}
+      >
+        <AppointmentForm
+          data={edit}
+          onClose={() => {
+            setEdit(false);
+          }}
+        />
+      </Modal>
+
+      {/* cancel appointment dialog */}
+      <AlertDialog open={cancel} onOpenChange={setCancel}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+            <AlertDialogDescription>
+              This will cancel this appointment.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>Cancel</AlertDialogCancel>
+            <AlertDialogAction>Continue</AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </>
   );
 }

@@ -10,3 +10,6 @@ export const wait = async(time=1000) => {
       setTimeout(resolve, time)
   })
 }
+
+export const range = (start: number, stop: number, step: number = 1) =>
+  Array.from({ length: (stop - start) / step + 1 }, (_, i) => start + i * step);
