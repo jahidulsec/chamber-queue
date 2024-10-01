@@ -41,7 +41,7 @@ function SidebarContent() {
       <section className="bottom">
         <Separator />
         <NavLink
-          className="mt-5 text-primary"
+          className="mt-5 text-destructive"
           title="Logout"
           icon={<LogOut className="size-4" />}
         />
