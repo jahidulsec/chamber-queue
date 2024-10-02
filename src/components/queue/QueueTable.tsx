@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -23,8 +23,23 @@ import { Button } from "../ui/button";
 import { MoreHorizontal } from "lucide-react";
 
 function QueueTable() {
-  const [data, setData] = useState<typeof patientList>(patientList);
+  const [data, setData] = useState(patientList);
   const [checked, setChecked] = useState("");
+
+  const dragPatient = useRef<number>(0);
+  const draggedOverPatient = useRef<number>(0);
+
+  const handleDragOver = (e: any) => {
+    e.preventDefault();
+  };
+
+  const handleOnDrop = (e: any) => {
+    const items = Array.from(data);
+    const [reorderedItem] = items.splice(dragPatient.current, 1);
+    items.splice(draggedOverPatient.current, 0, reorderedItem)
+
+    setData(items)
+  };
 
   return (
     <>
@@ -38,9 +53,15 @@ function QueueTable() {
           </TableRow>
         </TableHeader>
 
-        <TableBody>
-          {data.map((item) => (
-            <TableRow key={item.id}>
+        <TableBody onDragOver={handleDragOver}>
+          {data.map((item, index) => (
+            <TableRow
+              draggable
+              key={item.id}
+              onDragStart={(e) => (dragPatient.current = index)}
+              onDragEnter={(e) => (draggedOverPatient.current = index)}
+              onDragEnd={handleOnDrop}
+            >
               <TableCell># {item.id}</TableCell>
               <TableCell>{item.name}</TableCell>
               <TableCell>
