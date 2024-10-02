@@ -4,7 +4,7 @@ import { Badge } from "../ui/badge";
 function PatientStatusTag({status}: {status: string}) {
   return (
     <Badge
-      className={`2xl:text-[1vw] 2xl:p-[0.5vw] ${
+      className={`2xl:text-[1.5vw] 2xl:p-[0.75vw] ${
         status === "waiting"
           ? "bg-yellow-100 text-yellow-700 hover:bg-yellow-200"
           : status === "done"
