@@ -20,12 +20,14 @@ import {
 import { patientList } from "@/lib/data";
 import PatientStatusTag from "../badge/PatientStatusTag";
 import { Button } from "../ui/button";
-import { MoreHorizontal } from "lucide-react";
+import { GripHorizontal, MoreHorizontal } from "lucide-react";
+import { Reorder } from "framer-motion";
 
 function QueueTable() {
   const [data, setData] = useState(patientList);
   const [checked, setChecked] = useState("");
 
+  const dragItem = useRef<HTMLTableRowElement>();
   const dragPatient = useRef<number>(0);
   const draggedOverPatient = useRef<number>(0);
 
@@ -33,12 +35,14 @@ function QueueTable() {
     e.preventDefault();
   };
 
-  const handleOnDrop = (e: any) => {
+  const handleOnDrop = () => {
     const items = Array.from(data);
-    const [reorderedItem] = items.splice(dragPatient.current, 1);
-    items.splice(draggedOverPatient.current, 0, reorderedItem)
+    const [reorderedItem] = items.splice(dragPatient.current as number, 1);
+    items.splice(draggedOverPatient.current as number, 0, reorderedItem);
 
-    setData(items)
+    dragPatient.current = 0;
+    draggedOverPatient.current = 0;
+    setData(items);
   };
 
   return (
@@ -46,6 +50,9 @@ function QueueTable() {
       <Table>
         <TableHeader className="[&_tr]:bg-muted/50">
           <TableRow>
+            <TableHead className="w-[2rem]">
+              <span className="sr-only">Drag icon</span>
+            </TableHead>
             <TableHead className="w-[10rem]">Queue No.</TableHead>
             <TableHead>Patient Name</TableHead>
             <TableHead>Status</TableHead>
@@ -53,15 +60,12 @@ function QueueTable() {
           </TableRow>
         </TableHeader>
 
-        <TableBody onDragOver={handleDragOver}>
+        <Reorder.Group className="[&_tr:last-child]:border-0" as="tbody" values={data} onReorder={setData}>
           {data.map((item, index) => (
-            <TableRow
-              draggable
-              key={item.id}
-              onDragStart={(e) => (dragPatient.current = index)}
-              onDragEnter={(e) => (draggedOverPatient.current = index)}
-              onDragEnd={handleOnDrop}
-            >
+            <Reorder.Item as="tr" className="border-b" value={item} key={item.id}>
+              <TableCell className="cursor-move">
+                <GripHorizontal className="size-4" />
+              </TableCell>
               <TableCell># {item.id}</TableCell>
               <TableCell>{item.name}</TableCell>
               <TableCell>
@@ -95,9 +99,9 @@ function QueueTable() {
                   </DropdownMenuContent>
                 </DropdownMenu>
               </TableCell>
-            </TableRow>
+            </Reorder.Item>
           ))}
-        </TableBody>
+        </Reorder.Group>
       </Table>
     </>
   );
