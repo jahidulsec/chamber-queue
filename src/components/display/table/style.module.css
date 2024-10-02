@@ -1,0 +1,11 @@
+.table {
+    font-size: max(1rem, 1.25vw);
+}
+
+.table :where(td, th) {
+    padding: 1vw;
+}
+
+.h1 {
+    font-size: max(1.5rem, 1.75vw);
+}

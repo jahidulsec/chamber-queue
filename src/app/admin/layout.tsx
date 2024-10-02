@@ -4,7 +4,7 @@ import { ReactNode } from "react";
 
 export default async function AdminLayout({ children }: { children: ReactNode }) {
   return (
-    <div className="min-h-screen bg-muted relative md:flex">
+    <div className="min-h-screen bg-muted/50 relative md:flex">
       <header className="h-full sticky top-0 md:min-w-[15rem]">
         <Navbar />
         <Sidebar />

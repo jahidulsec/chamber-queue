@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -11,7 +11,6 @@ import {
 } from "@/components/ui/dropdown-menu";
 import {
   Table,
-  TableBody,
   TableCell,
   TableHead,
   TableHeader,
@@ -26,24 +25,6 @@ import { Reorder } from "framer-motion";
 function QueueTable() {
   const [data, setData] = useState(patientList);
   const [checked, setChecked] = useState("");
-
-  const dragItem = useRef<HTMLTableRowElement>();
-  const dragPatient = useRef<number>(0);
-  const draggedOverPatient = useRef<number>(0);
-
-  const handleDragOver = (e: any) => {
-    e.preventDefault();
-  };
-
-  const handleOnDrop = () => {
-    const items = Array.from(data);
-    const [reorderedItem] = items.splice(dragPatient.current as number, 1);
-    items.splice(draggedOverPatient.current as number, 0, reorderedItem);
-
-    dragPatient.current = 0;
-    draggedOverPatient.current = 0;
-    setData(items);
-  };
 
   return (
     <>
@@ -66,7 +47,7 @@ function QueueTable() {
               <TableCell className="cursor-move">
                 <GripHorizontal className="size-4" />
               </TableCell>
-              <TableCell># {item.id}</TableCell>
+              <TableCell># {index + 1}</TableCell>
               <TableCell>{item.name}</TableCell>
               <TableCell>
                 <PatientStatusTag status={item.status} />
