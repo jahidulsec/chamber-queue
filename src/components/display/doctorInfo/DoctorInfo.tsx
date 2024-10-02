@@ -7,8 +7,8 @@ import Link from "next/link";
 function DoctorInfo() {
   return (
     <aside className="w-1/4 p-3">
-      <article className=" rounded-3xl w-full h-full bg-background p-4 2xl:p-[2vw]">
-        <Link className="py-6 flex justify-center" href={'/'}>
+      <article className=" rounded-3xl w-full h-full bg-background px-4 py-2 2xl:p-[2vw]">
+        <Link className="py-3 flex justify-center" href={'/'}>
           <Logo />
         </Link>
         {/* image */}
@@ -18,9 +18,9 @@ function DoctorInfo() {
           </div>
         </div>
         {/* name */}
-        <section className="my-5">
+        <section className="mt-5">
           <h1
-            className={`rounded-3xl bg-muted/50 p-5 font-semibold my-2 ${styles.h1}`}
+            className={`rounded-3xl bg-muted/50 p-5 font-semibold my-2 text-2xl 2xl:${styles.h1}`}
           >
             Dr. Md. Mostofa Alam Bony
           </h1>
