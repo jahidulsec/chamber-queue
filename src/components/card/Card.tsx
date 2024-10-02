@@ -1,4 +1,3 @@
-import { UserRoundCheck } from "lucide-react";
 import React from "react";
 
 type CardProps = {

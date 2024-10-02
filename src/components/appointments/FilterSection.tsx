@@ -1,8 +1,6 @@
 import React from "react";
 import Section from "../section/Section";
 import Search from "../search/Search";
-import { Button } from "../ui/button";
-import { Plus } from "lucide-react";
 import {
   Select,
   SelectItem,

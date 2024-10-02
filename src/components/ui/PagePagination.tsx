@@ -24,8 +24,8 @@ function PagePagination({ limit, count }: { limit: number; count: number }) {
   const noOfPages = Math.ceil(count / limit);
   const currentPage = Number(searchParams.get("p")) || 1;
 
-  let pageStart = currentPage <= 4 ? 2 : currentPage - 2;
-  let pageStop = currentPage >= noOfPages - 2 ? noOfPages - 1 : currentPage + 2;
+  const pageStart = currentPage <= 4 ? 2 : currentPage - 2;
+  const pageStop = currentPage >= noOfPages - 2 ? noOfPages - 1 : currentPage + 2;
 
   return (
     <Pagination>
@@ -64,12 +64,12 @@ function PagePagination({ limit, count }: { limit: number; count: number }) {
             </PaginationItem>
           )}
 
-          {range(pageStart, pageStop).map((item, index) => (
+          {range(pageStart, pageStop).map((item) => (
             <PaginationItem key={item}>
               <PaginationLink
                 isActive={Number(searchParams.get("p") || 1) === item}
                 onClick={() => {
-                  let value = item;
+                  const value = item;
                   params.set("p", value.toString());
                   params.toString();
                   router.push(pathname + "?" + params.toString());

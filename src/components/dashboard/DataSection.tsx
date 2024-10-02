@@ -6,7 +6,6 @@ import { Button } from "../ui/button";
 import { Plus, UserRoundPlus } from "lucide-react";
 import DataTable from "./DataTable";
 import { format } from "date-fns";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "../ui/dialog";
 import Modal from "../modal/Modal";
 import AppointmentForm from "../forms/AppointmentForm";
 

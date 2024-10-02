@@ -2,7 +2,6 @@
 
 import React from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "../ui/dialog";
-import { UserRoundPlus } from "lucide-react";
 import { DialogProps } from "@radix-ui/react-dialog";
 
 type ModalProps = DialogProps & {
