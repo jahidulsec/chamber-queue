@@ -19,7 +19,7 @@ function DisplayTable() {
   const [data, setData] = useState(patientList);
 
   return (
-    <section className="w-3/4 p-4">
+    <section className="sm:w-2/3  md:w-3/4 p-4">
       <div className="rounded-3xl p-5 2xl:p-[2vw] bg-background h-full">
         <PageHeading title="Patient List" className={`mb-[2vw] ${styles.h1}`} icon={<Users2 className="size-[1.5vw]"/>} />
         <Table className={styles.table}>

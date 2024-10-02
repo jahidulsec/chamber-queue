@@ -17,8 +17,7 @@ import { Check, Edit, UserRoundPen, X } from "lucide-react";
 import Tooltips from "../ui/Tooltips";
 import Modal from "../modal/Modal";
 import AppointmentForm from "../forms/AppointmentForm";
-import { AlertDialog, AlertDialogAction, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle } from "../ui/alert-dialog";
-import { AlertDialogCancel } from "@radix-ui/react-alert-dialog";
+import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle } from "../ui/alert-dialog";
 
 function AppointmentTable() {
   const [edit, setEdit] = useState<any>(false);
@@ -45,7 +44,7 @@ function AppointmentTable() {
               <TableCell className="py-1">
                 <PatientStatusTag status={item.status} />
               </TableCell>
-              <TableCell>{formatDateTime(item.date)}</TableCell>
+              <TableCell className="text-nowrap">{formatDateTime(item.date)}</TableCell>
 
               {/* buttons */}
               <TableCell className="flex gap-1 justify-end">

@@ -28,8 +28,8 @@ function DataSection() {
               setAdd(true);
             }}
           >
-            <Plus className="size-4 mr-2" />
-            <span>Add</span>
+            <Plus className="size-4 sm:mr-2" />
+            <span className="hidden sm:block">Add</span>
           </Button>
         </div>
 

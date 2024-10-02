@@ -31,7 +31,7 @@ function Search({ placeholder = "Search...", type='search' }: { placeholder?: st
   }
 
   return (
-    <form onSubmit={handleSubmit} className="relative min-w-[5rem]">
+    <form onSubmit={handleSubmit} className="relative min-w-[5rem] grow md:grow-0">
       <Input
         type={type}
         name="search"
